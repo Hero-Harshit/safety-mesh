@@ -118,7 +118,7 @@ export default function PersonnelTab() {
     }
 
     return result;
-  }, [users, filter, searchQuery]);
+  }, [users, filter, bloodFilter, searchQuery]);
 
   return (
     <div style={{ width: '100%', height: '100%', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', overflowY: 'auto' }}>

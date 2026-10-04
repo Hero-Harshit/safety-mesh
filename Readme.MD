@@ -38,8 +38,8 @@ SafetyMesh operates on a modular, layered architecture:
 - **Node.js (Express 5)**
 - **TomTom Maps & Routing API** (Pedestrian routing & geocoding)
 - **Groq SDK (Llama 3.3 70B)** (Intelligent real-time emergency routing reasoning)
-- **MongoDB + Mongoose** (With automated in-memory standalone fallback)
-- **Uber Sandbox API Integration** (Automated ride dispatch pipeline)
+- **PostgreSQL + PostGIS** (Location Engine & 100m spatial matching)
+- **Supabase** (Real-time events and data persistence)
 - **Immutable Incident & Audit Event Logging Engine**
 
 ## Prerequisites
@@ -55,18 +55,10 @@ To configure the backend, a default `.env` is provided in the `backend` director
 
 ```env
 PORT=5000
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/safetymesh
+SUPABASE_URL=your_supabase_url
+SUPABASE_SERVICE_KEY=your_supabase_service_key
 TOMTOM_API_KEY=your_tomtom_api_key_here
 GROQ_API_KEY=your_groq_api_key_here
-
-# Uber Sandbox Configuration
-UBER_ENV=sandbox
-UBER_BASE_URL=https://sandbox-api.uber.com
-UBER_LOGIN_URL=https://login.uber.com
-UBER_CLIENT_ID=your_uber_client_id
-UBER_CLIENT_SECRET=your_uber_client_secret
-UBER_REDIRECT_URI=http://localhost:5000/api/uber/callback
-UBER_SCOPES=request
 
 # Security
 ENCRYPTION_KEY=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
